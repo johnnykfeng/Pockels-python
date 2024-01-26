@@ -1,3 +1,6 @@
+import logging.handlers
+import logging.config
+import json
 import numpy as np
 import os
 import matplotlib.pyplot as plt
@@ -6,6 +9,17 @@ from skimage import filters, feature, io
 from scipy.ndimage import uniform_filter1d
 from scipy.interpolate import interp1d
 # from scipy import polyval
+
+
+logger = logging.getLogger("edge_finding")  
+def setup_logging():
+    config_file = os.path.join("logger", "logger_configs", "1-stderr-file.json")
+    with open(config_file) as f_in:
+        config = json.load(f_in)
+    logging.config.dictConfig(config=config)
+
+setup_logging()
+logger.info("HELLO")
 
 data_folder = r"test_data\D325150"
 bias_txt = os.path.join(data_folder, '700V Crossed 25mA.txt')
@@ -69,8 +83,10 @@ def find_sensor_edges(image, threshold=0.8, show_dim = True):
 
     image_length, image_width = image.shape
     if show_dim:
-        print(f"{image_length = }")
-        print(f"{image_width = }")
+        # print(f"{image_length = }")
+        # print(f"{image_width = }")
+        logger.info(f"{image_length = }")
+        logger.info(f"{image_width = }")
 
     # Threshold for judging signal
     image_center = image[:, int(image_length/2)]  # rounds down image_length/2
