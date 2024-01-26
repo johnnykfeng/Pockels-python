@@ -1,0 +1,340 @@
+2024-01-26 08:18:53.891 | DEBUG    | __main__:<module>:5 - That's it, beautiful and simple logging!
+2024-01-26 08:18:53.891 | FATAL    | __main__:<module>:8 - A user updated some information.
+2024-01-26 08:19:19.709 | DEBUG    | __main__:<module>:5 - That's it, beautiful and simple logging!
+2024-01-26 08:19:19.709 | FATAL    | __main__:<module>:8 - A user updated some information.
+2024-01-26 08:19:24.676 | DEBUG    | __main__:<module>:5 - That's it, beautiful and simple logging!
+2024-01-26 08:19:24.676 | FATAL    | __main__:<module>:8 - A user updated some information.
+2024-01-26 08:20:49.146 | DEBUG    | __main__:<module>:5 - That's it, beautiful and simple logging!
+2024-01-26 08:20:49.146 | FATAL    | __main__:<module>:8 - A user updated some information.
+2024-01-26 08:20:52.912 | DEBUG    | __main__:<module>:5 - That's it, beautiful and simple logging!
+2024-01-26 08:20:52.912 | FATAL    | __main__:<module>:8 - A user updated some information.
+2024-01-26 08:20:54.345 | DEBUG    | __main__:<module>:5 - That's it, beautiful and simple logging!
+2024-01-26 08:20:54.345 | FATAL    | __main__:<module>:8 - A user updated some information.
+2024-01-26 08:26:37.981 | INFO     | loguru_pack.loguru_app:<module>:6 - Initiating loguru
+2024-01-26 08:27:27.021 | INFO     | loguru_pack.loguru_app:<module>:6 - Initiating loguru
+2024-01-26 08:28:23.870 | INFO     | loguru_pack.loguru_app:<module>:6 - Initiating loguru
+2024-01-26 08:28:24.452 | INFO     | __main__:find_sensor_edges:88 - image_length = 520
+2024-01-26 08:28:24.452 | INFO     | __main__:find_sensor_edges:89 - image_width = 696
+2024-01-26 08:41:02.124 | INFO     | loguru_pack.loguru_app:<module>:6 - Initiating loguru
+2024-01-26 08:41:02.716 | INFO     | __main__:find_sensor_edges:88 - image_length = 520
+2024-01-26 08:41:02.716 | INFO     | __main__:find_sensor_edges:89 - image_width = 696
+2024-01-26 08:41:17.499 | INFO     | loguru_pack.loguru_app:<module>:6 - Initiating loguru
+2024-01-26 08:41:18.065 | INFO     | __main__:find_sensor_edges:88 - image_length = 520
+2024-01-26 08:41:18.080 | INFO     | __main__:find_sensor_edges:89 - image_width = 696
+2024-01-26 08:41:55.568 | INFO     | loguru_pack.loguru_app:<module>:6 - Initiating loguru
+2024-01-26 08:41:56.144 | INFO     | __main__:find_sensor_edges:88 - image_length = 520
+2024-01-26 08:41:56.144 | INFO     | __main__:find_sensor_edges:89 - image_width = 696
+2024-01-26 08:42:11.549 | INFO     | loguru_pack.loguru_app:<module>:6 - Initiating loguru
+2024-01-26 08:42:12.116 | INFO     | __main__:find_sensor_edges:88 - image_length = 520
+2024-01-26 08:42:12.116 | INFO     | __main__:find_sensor_edges:89 - image_width = 696
+2024-01-26 09:27:29.550 | INFO     | loguru_pack.loguru_config:<module>:14 - Initiating loguru
+2024-01-26 09:27:30.155 | INFO     | __main__:find_sensor_edges:78 - image_length = 520
+2024-01-26 09:27:30.156 | INFO     | __main__:find_sensor_edges:79 - image_width = 696
+2024-01-26 09:29:28.184 | INFO     | loguru_pack.loguru_config:<module>:14 - Initiating loguru
+2024-01-26 09:29:28.784 | INFO     | __main__:find_sensor_edges:78 - image_length = 520
+2024-01-26 09:29:28.799 | INFO     | __main__:find_sensor_edges:79 - image_width = 696
+2024-01-26 09:29:28.816 | WARNING  | __main__:<module>:178 - Making plots
+2024-01-26 09:32:17.466 | INFO     | __main__:<module>:16 - Initiating loguru
+2024-01-26 09:32:34.339 | INFO     | loguru_pack.loguru_config:<module>:16 - Initiating loguru
+2024-01-26 09:32:34.931 | INFO     | __main__:find_sensor_edges:78 - image_length = 520
+2024-01-26 09:32:34.931 | INFO     | __main__:find_sensor_edges:79 - image_width = 696
+2024-01-26 09:32:34.962 | WARNING  | __main__:<module>:178 - Making plots
+2024-01-26 09:33:17.236 | INFO     | loguru_pack.loguru_config:<module>:16 - Initiating loguru
+2024-01-26 09:33:17.814 | INFO     | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 09:33:17.814 | INFO     | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 09:33:17.846 | WARNING  | __main__:<module>:180 - Making plots
+2024-01-26 09:36:23.083 | INFO     | loguru_pack.loguru_config:<module>:16 - Initiating loguru
+2024-01-26 09:36:23.631 | INFO     | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 09:36:23.631 | INFO     | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 09:36:23.669 | WARNING  | __main__:<module>:180 - Making plots
+2024-01-26 09:36:34.316 | INFO     | loguru_pack.loguru_config:<module>:16 - Initiating loguru
+2024-01-26 09:36:34.887 | INFO     | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 09:36:34.887 | INFO     | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 09:36:34.915 | WARNING  | __main__:<module>:180 - Making plots
+2024-01-26 09:36:45.383 | INFO     | loguru_pack.loguru_config:<module>:16 - Initiating loguru
+2024-01-26 09:36:45.938 | INFO     | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 09:36:45.938 | INFO     | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 09:36:45.969 | WARNING  | __main__:<module>:180 - Making plots
+2024-01-26 09:37:03.085 | INFO     | loguru_pack.loguru_config:<module>:16 - Initiating loguru
+2024-01-26 09:37:03.644 | INFO     | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 09:37:03.645 | INFO     | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 09:37:03.668 | WARNING  | __main__:<module>:180 - Making plots
+2024-01-26 09:37:28.933 | INFO     | loguru_pack.loguru_config:<module>:16 - Initiating loguru
+2024-01-26 09:37:29.488 | INFO     | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 09:37:29.488 | INFO     | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 09:37:29.518 | WARNING  | __main__:<module>:180 - Making plots
+2024-01-26 09:37:58.729 | INFO     | loguru_pack.loguru_config:<module>:16 - Initiating loguru
+2024-01-26 09:37:59.260 | INFO     | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 09:37:59.260 | INFO     | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 09:37:59.292 | WARNING  | __main__:<module>:180 - Making plots
+2024-01-26 09:38:12.473 | INFO     | loguru_pack.loguru_config:<module>:16 - Initiating loguru
+2024-01-26 09:38:13.010 | INFO     | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 09:38:13.010 | INFO     | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 09:38:13.056 | WARNING  | __main__:<module>:180 - Making plots
+2024-01-26 09:46:01.556 | INFO     | __main__:<module>:18 - Initiating loguru
+2024-01-26 09:46:01.556 | INFO     | __main__:<module>:19 - If you're using Python 3.6, prefer f-strings of course!
+2024-01-26 09:48:13.539 | INFO     | __main__:<module>:17 - Initiating loguru
+2024-01-26 09:49:22.536 | INFO     | __main__:<module>:17 - Initiating loguru
+2024-01-26 09:49:22.536 | INFO     | __main__:<module>:21 - Contextualize your logger easily
+192.168.0.1 someone Contextualize your logger easily
+2024-01-26 09:49:22.536 | INFO     | __main__:<module>:22 - Inline binding of extra attribute
+192.168.0.1 someone_else Inline binding of extra attribute
+2024-01-26 09:49:22.536 | INFO     | __main__:<module>:23 - Use kwargs to add context during formatting: anybody
+192.168.0.1 anybody Use kwargs to add context during formatting: anybody
+2024-01-26 09:54:28.781 | INFO     | __main__:<module>:17 - Initiating loguru
+2024-01-26 09:54:28.781 | DEBUG    | __main__:try_all_levels:21 - this is DEBUG
+2024-01-26 09:54:28.781 | INFO     | __main__:try_all_levels:22 - this is INFO
+2024-01-26 09:54:28.781 | SUCCESS  | __main__:try_all_levels:23 - this is SUCCESS
+2024-01-26 09:54:28.781 | WARNING  | __main__:try_all_levels:24 - this is WARNING
+2024-01-26 09:54:28.781 | ERROR    | __main__:try_all_levels:25 - this is ERROR
+2024-01-26 09:54:28.781 | CRITICAL | __main__:try_all_levels:26 - this is CRITICAL
+2024-01-26 09:56:32.097 | INFO     | __main__:<module>:17 - Initiating loguru
+2024-01-26 09:56:32.099 | DEBUG    | __main__:try_all_levels:25 - this is DEBUG
+2024-01-26 09:56:32.099 | INFO     | __main__:try_all_levels:26 - this is INFO
+2024-01-26 09:56:32.099 | SUCCESS  | __main__:try_all_levels:27 - this is SUCCESS
+2024-01-26 09:56:32.100 | WARNING  | __main__:try_all_levels:28 - this is WARNING
+2024-01-26 09:56:32.100 | ERROR    | __main__:try_all_levels:29 - this is ERROR
+2024-01-26 09:56:32.100 | CRITICAL | __main__:try_all_levels:30 - this is CRITICAL
+2024-01-26 09:56:40.548 | INFO     | __main__:<module>:17 - Initiating loguru
+2024-01-26 09:56:40.548 | DEBUG    | __main__:try_all_levels:25 - this is DEBUG
+2024-01-26 09:56:40.548 | INFO     | __main__:try_all_levels:26 - this is INFO
+2024-01-26 09:56:40.548 | SUCCESS  | __main__:try_all_levels:27 - this is SUCCESS
+2024-01-26 09:56:40.548 | WARNING  | __main__:try_all_levels:28 - this is WARNING
+2024-01-26 09:56:40.548 | ERROR    | __main__:try_all_levels:29 - this is ERROR
+2024-01-26 09:56:40.548 | CRITICAL | __main__:try_all_levels:30 - this is CRITICAL
+2024-01-26 09:56:45.083 | INFO     | __main__:<module>:17 - Initiating loguru
+2024-01-26 09:56:45.083 | DEBUG    | __main__:try_all_levels:25 - this is DEBUG
+2024-01-26 09:56:45.083 | INFO     | __main__:try_all_levels:26 - this is INFO
+2024-01-26 09:56:45.083 | SUCCESS  | __main__:try_all_levels:27 - this is SUCCESS
+2024-01-26 09:56:45.083 | WARNING  | __main__:try_all_levels:28 - this is WARNING
+2024-01-26 09:56:45.083 | ERROR    | __main__:try_all_levels:29 - this is ERROR
+2024-01-26 09:56:45.083 | CRITICAL | __main__:try_all_levels:30 - this is CRITICAL
+2024-01-26 09:57:05.898 | INFO     | __main__:<module>:17 - Initiating loguru
+2024-01-26 09:57:05.898 | DEBUG    | __main__:try_all_levels:25 - this is DEBUG
+2024-01-26 09:57:05.898 | INFO     | __main__:try_all_levels:26 - this is INFO
+2024-01-26 09:57:05.898 | SUCCESS  | __main__:try_all_levels:27 - this is SUCCESS
+2024-01-26 09:57:05.898 | WARNING  | __main__:try_all_levels:28 - this is WARNING
+2024-01-26 09:57:05.898 | ERROR    | __main__:try_all_levels:29 - this is ERROR
+2024-01-26 09:57:05.898 | CRITICAL | __main__:try_all_levels:30 - this is CRITICAL
+2024-01-26 09:57:24.034 | INFO     | __main__:<module>:17 - Initiating loguru
+2024-01-26 09:57:24.046 | DEBUG    | __main__:try_all_levels:25 - this is DEBUG
+2024-01-26 09:57:24.046 | INFO     | __main__:try_all_levels:26 - this is INFO
+2024-01-26 09:57:24.046 | SUCCESS  | __main__:try_all_levels:27 - this is SUCCESS
+2024-01-26 09:57:24.046 | WARNING  | __main__:try_all_levels:28 - this is WARNING
+2024-01-26 09:57:24.046 | ERROR    | __main__:try_all_levels:29 - this is ERROR
+2024-01-26 09:57:24.046 | CRITICAL | __main__:try_all_levels:30 - this is CRITICAL
+2024-01-26 09:58:10.462 | INFO     | __main__:<module>:17 - Initiating loguru
+2024-01-26 09:58:10.462 | DEBUG    | __main__:try_all_levels:25 - this is DEBUG
+2024-01-26 09:58:10.462 | INFO     | __main__:try_all_levels:26 - this is INFO
+2024-01-26 09:58:10.462 | SUCCESS  | __main__:try_all_levels:27 - this is SUCCESS
+2024-01-26 09:58:10.462 | WARNING  | __main__:try_all_levels:28 - this is WARNING
+2024-01-26 09:58:10.462 | ERROR    | __main__:try_all_levels:29 - this is ERROR
+2024-01-26 09:58:10.462 | CRITICAL | __main__:try_all_levels:30 - this is CRITICAL
+2024-01-26 09:58:51.030 | INFO     | __main__:<module>:17 - Initiating loguru
+2024-01-26 09:58:51.030 | DEBUG    | __main__:try_all_levels:25 - this is DEBUG
+2024-01-26 09:58:51.030 | INFO     | __main__:try_all_levels:26 - this is INFO
+2024-01-26 09:58:51.030 | SUCCESS  | __main__:try_all_levels:27 - this is SUCCESS
+2024-01-26 09:58:51.030 | WARNING  | __main__:try_all_levels:28 - this is WARNING
+2024-01-26 09:58:51.030 | ERROR    | __main__:try_all_levels:29 - this is ERROR
+2024-01-26 09:58:51.030 | CRITICAL | __main__:try_all_levels:30 - this is CRITICAL
+2024-01-26 09:59:07.582 | INFO     | __main__:<module>:16 - Initiating loguru
+2024-01-26 09:59:07.582 | DEBUG    | __main__:try_all_levels:24 - this is DEBUG
+2024-01-26 09:59:07.582 | INFO     | __main__:try_all_levels:25 - this is INFO
+2024-01-26 09:59:07.582 | SUCCESS  | __main__:try_all_levels:26 - this is SUCCESS
+2024-01-26 09:59:07.582 | WARNING  | __main__:try_all_levels:27 - this is WARNING
+2024-01-26 09:59:07.582 | ERROR    | __main__:try_all_levels:28 - this is ERROR
+2024-01-26 09:59:07.582 | CRITICAL | __main__:try_all_levels:29 - this is CRITICAL
+2024-01-26 09:59:16.178 | INFO     | __main__:<module>:16 - Initiating loguru
+2024-01-26 09:59:16.178 | DEBUG    | __main__:try_all_levels:24 - this is DEBUG
+2024-01-26 09:59:16.178 | INFO     | __main__:try_all_levels:25 - this is INFO
+2024-01-26 09:59:16.178 | SUCCESS  | __main__:try_all_levels:26 - this is SUCCESS
+2024-01-26 09:59:16.178 | WARNING  | __main__:try_all_levels:27 - this is WARNING
+2024-01-26 09:59:16.178 | ERROR    | __main__:try_all_levels:28 - this is ERROR
+2024-01-26 09:59:16.178 | CRITICAL | __main__:try_all_levels:29 - this is CRITICAL
+2024-01-26 09:59:25.115 | INFO     | __main__:<module>:16 - Initiating loguru
+2024-01-26 09:59:25.116 | DEBUG    | __main__:try_all_levels:24 - this is DEBUG
+2024-01-26 09:59:25.116 | INFO     | __main__:try_all_levels:25 - this is INFO
+2024-01-26 09:59:25.116 | SUCCESS  | __main__:try_all_levels:26 - this is SUCCESS
+2024-01-26 09:59:25.116 | WARNING  | __main__:try_all_levels:27 - this is WARNING
+2024-01-26 09:59:25.116 | ERROR    | __main__:try_all_levels:28 - this is ERROR
+2024-01-26 09:59:25.116 | CRITICAL | __main__:try_all_levels:29 - this is CRITICAL
+2024-01-26 09:59:57.093 | INFO     | __main__:<module>:16 - Initiating loguru
+2024-01-26 09:59:57.093 | DEBUG    | __main__:try_all_levels:24 - this is DEBUG
+2024-01-26 09:59:57.093 | INFO     | __main__:try_all_levels:25 - this is INFO
+2024-01-26 09:59:57.093 | SUCCESS  | __main__:try_all_levels:26 - this is SUCCESS
+2024-01-26 09:59:57.093 | WARNING  | __main__:try_all_levels:27 - this is WARNING
+2024-01-26 09:59:57.093 | ERROR    | __main__:try_all_levels:28 - this is ERROR
+2024-01-26 09:59:57.093 | CRITICAL | __main__:try_all_levels:29 - this is CRITICAL
+2024-01-26 10:00:09.862 | INFO     | __main__:<module>:16 - Initiating loguru
+2024-01-26 10:00:29.463 | INFO     | __main__:<module>:16 - Initiating loguru
+2024-01-26 10:00:29.463 | DEBUG    | __main__:try_all_levels:24 - this is DEBUG
+2024-01-26 10:00:29.463 | INFO     | __main__:try_all_levels:25 - this is INFO
+2024-01-26 10:00:29.463 | SUCCESS  | __main__:try_all_levels:26 - this is SUCCESS
+2024-01-26 10:00:29.463 | WARNING  | __main__:try_all_levels:27 - this is WARNING
+2024-01-26 10:00:29.463 | ERROR    | __main__:try_all_levels:28 - this is ERROR
+2024-01-26 10:00:29.463 | CRITICAL | __main__:try_all_levels:29 - this is CRITICAL
+2024-01-26 10:00:39.735 | INFO     | __main__:<module>:16 - Initiating loguru
+2024-01-26 10:00:39.751 | DEBUG    | __main__:try_all_levels:24 - this is DEBUG
+2024-01-26 10:00:39.751 | INFO     | __main__:try_all_levels:25 - this is INFO
+2024-01-26 10:00:39.751 | SUCCESS  | __main__:try_all_levels:26 - this is SUCCESS
+2024-01-26 10:00:39.751 | WARNING  | __main__:try_all_levels:27 - this is WARNING
+2024-01-26 10:00:39.751 | ERROR    | __main__:try_all_levels:28 - this is ERROR
+2024-01-26 10:00:39.751 | CRITICAL | __main__:try_all_levels:29 - this is CRITICAL
+2024-01-26 10:01:06.003 | INFO     | __main__:<module>:16 - Initiating loguru
+2024-01-26 10:01:06.003 | DEBUG    | __main__:try_all_levels:25 - this is DEBUG
+2024-01-26 10:01:06.003 | INFO     | __main__:try_all_levels:26 - this is INFO
+2024-01-26 10:01:06.003 | SUCCESS  | __main__:try_all_levels:27 - this is SUCCESS
+2024-01-26 10:01:06.003 | WARNING  | __main__:try_all_levels:28 - this is WARNING
+2024-01-26 10:01:06.003 | ERROR    | __main__:try_all_levels:29 - this is ERROR
+2024-01-26 10:01:06.003 | CRITICAL | __main__:try_all_levels:30 - this is CRITICAL
+2024-01-26 10:01:56.610 | INFO     | __main__:<module>:16 - Initiating loguru
+2024-01-26 10:01:56.626 | DEBUG    | __main__:try_all_levels:28 - this is DEBUG
+2024-01-26 10:01:56.626 | INFO     | __main__:try_all_levels:29 - this is INFO
+2024-01-26 10:01:56.626 | SUCCESS  | __main__:try_all_levels:30 - this is SUCCESS
+2024-01-26 10:01:56.626 | WARNING  | __main__:try_all_levels:31 - this is WARNING
+2024-01-26 10:01:56.626 | WARNING  | __main__:try_all_levels:31 - this is WARNING
+2024-01-26 10:01:56.626 | ERROR    | __main__:try_all_levels:32 - this is ERROR
+2024-01-26 10:01:56.626 | ERROR    | __main__:try_all_levels:32 - this is ERROR
+2024-01-26 10:01:56.634 | CRITICAL | __main__:try_all_levels:33 - this is CRITICAL
+2024-01-26 10:01:56.634 | CRITICAL | __main__:try_all_levels:33 - this is CRITICAL
+2024-01-26 10:02:25.059 | WARNING  | __main__:try_all_levels:31 - this is WARNING
+2024-01-26 10:02:25.059 | ERROR    | __main__:try_all_levels:32 - this is ERROR
+2024-01-26 10:02:25.059 | CRITICAL | __main__:try_all_levels:33 - this is CRITICAL
+2024-01-26 10:03:28.240 | WARNING  | __main__:try_all_levels:31 - this is WARNING
+2024-01-26 10:03:28.240 | ERROR    | __main__:try_all_levels:32 - this is ERROR
+2024-01-26 10:03:28.240 | CRITICAL | __main__:try_all_levels:33 - this is CRITICAL
+2024-01-26 10:04:29.260 | WARNING  | __main__:try_all_levels:37 - this is WARNING
+2024-01-26 10:04:29.260 | ERROR    | __main__:try_all_levels:38 - this is ERROR
+2024-01-26 10:04:29.260 | CRITICAL | __main__:try_all_levels:39 - this is CRITICAL
+2024-01-26 10:04:42.232 | WARNING  | __main__:try_all_levels:37 - this is WARNING
+2024-01-26 10:04:42.232 | ERROR    | __main__:try_all_levels:38 - this is ERROR
+2024-01-26 10:04:42.232 | CRITICAL | __main__:try_all_levels:39 - this is CRITICAL
+2024-01-26 10:08:24.063 | INFO     | __main__:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:08:24.063 | DEBUG    | __main__:try_all_levels:34 - this is DEBUG
+2024-01-26 10:08:24.063 | INFO     | __main__:try_all_levels:35 - this is INFO
+2024-01-26 10:08:24.063 | SUCCESS  | __main__:try_all_levels:36 - this is SUCCESS
+2024-01-26 10:08:24.063 | WARNING  | __main__:try_all_levels:37 - this is WARNING
+2024-01-26 10:08:24.063 | ERROR    | __main__:try_all_levels:38 - this is ERROR
+2024-01-26 10:08:24.063 | CRITICAL | __main__:try_all_levels:39 - this is CRITICAL
+2024-01-26 10:10:53.777 | INFO     | __main__:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:10:53.777 | DEBUG    | __main__:try_all_levels:34 - this is DEBUG
+2024-01-26 10:10:53.777 | INFO     | __main__:try_all_levels:35 - this is INFO
+2024-01-26 10:10:53.777 | SUCCESS  | __main__:try_all_levels:36 - this is SUCCESS
+2024-01-26 10:10:53.777 | WARNING  | __main__:try_all_levels:37 - this is WARNING
+2024-01-26 10:10:53.777 | ERROR    | __main__:try_all_levels:38 - this is ERROR
+2024-01-26 10:10:53.777 | CRITICAL | __main__:try_all_levels:39 - this is CRITICAL
+2024-01-26 10:11:05.820 | INFO     | __main__:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:11:05.820 | DEBUG    | __main__:try_all_levels:34 - this is DEBUG
+2024-01-26 10:11:05.820 | INFO     | __main__:try_all_levels:35 - this is INFO
+2024-01-26 10:11:05.820 | SUCCESS  | __main__:try_all_levels:36 - this is SUCCESS
+2024-01-26 10:11:05.820 | WARNING  | __main__:try_all_levels:37 - this is WARNING
+2024-01-26 10:11:05.820 | ERROR    | __main__:try_all_levels:38 - this is ERROR
+2024-01-26 10:11:05.820 | CRITICAL | __main__:try_all_levels:39 - this is CRITICAL
+2024-01-26 10:11:10.546 | INFO     | __main__:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:11:10.546 | DEBUG    | __main__:try_all_levels:34 - this is DEBUG
+2024-01-26 10:11:10.546 | INFO     | __main__:try_all_levels:35 - this is INFO
+2024-01-26 10:11:10.546 | SUCCESS  | __main__:try_all_levels:36 - this is SUCCESS
+2024-01-26 10:11:10.546 | WARNING  | __main__:try_all_levels:37 - this is WARNING
+2024-01-26 10:11:10.546 | ERROR    | __main__:try_all_levels:38 - this is ERROR
+2024-01-26 10:11:10.546 | CRITICAL | __main__:try_all_levels:39 - this is CRITICAL
+2024-01-26 10:11:51.537 | INFO     | __main__:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:11:51.553 | DEBUG    | __main__:try_all_levels:34 - this is DEBUG
+2024-01-26 10:11:51.553 | INFO     | __main__:try_all_levels:35 - this is INFO
+2024-01-26 10:11:51.553 | SUCCESS  | __main__:try_all_levels:36 - this is SUCCESS
+2024-01-26 10:11:51.553 | WARNING  | __main__:try_all_levels:37 - this is WARNING
+2024-01-26 10:11:51.553 | ERROR    | __main__:try_all_levels:38 - this is ERROR
+2024-01-26 10:11:51.553 | CRITICAL | __main__:try_all_levels:39 - this is CRITICAL
+2024-01-26 10:12:18.817 | INFO     | __main__:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:12:18.817 | DEBUG    | __main__:try_all_levels:34 - this is DEBUG
+2024-01-26 10:12:18.817 | INFO     | __main__:try_all_levels:35 - this is INFO
+2024-01-26 10:12:18.818 | SUCCESS  | __main__:try_all_levels:36 - this is SUCCESS
+2024-01-26 10:12:18.818 | WARNING  | __main__:try_all_levels:37 - this is WARNING
+2024-01-26 10:12:18.818 | ERROR    | __main__:try_all_levels:38 - this is ERROR
+2024-01-26 10:12:18.818 | CRITICAL | __main__:try_all_levels:39 - this is CRITICAL
+2024-01-26 10:12:24.798 | INFO     | __main__:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:12:24.798 | DEBUG    | __main__:try_all_levels:34 - this is DEBUG
+2024-01-26 10:12:24.798 | INFO     | __main__:try_all_levels:35 - this is INFO
+2024-01-26 10:12:24.798 | SUCCESS  | __main__:try_all_levels:36 - this is SUCCESS
+2024-01-26 10:12:24.798 | WARNING  | __main__:try_all_levels:37 - this is WARNING
+2024-01-26 10:12:24.798 | ERROR    | __main__:try_all_levels:38 - this is ERROR
+2024-01-26 10:12:24.798 | CRITICAL | __main__:try_all_levels:39 - this is CRITICAL
+2024-01-26 10:12:40.342 | INFO     | __main__:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:12:40.342 | DEBUG    | __main__:try_all_levels:34 - this is DEBUG
+2024-01-26 10:12:40.342 | INFO     | __main__:try_all_levels:35 - this is INFO
+2024-01-26 10:12:40.342 | SUCCESS  | __main__:try_all_levels:36 - this is SUCCESS
+2024-01-26 10:12:40.342 | WARNING  | __main__:try_all_levels:37 - this is WARNING
+2024-01-26 10:12:40.342 | ERROR    | __main__:try_all_levels:38 - this is ERROR
+2024-01-26 10:12:40.342 | CRITICAL | __main__:try_all_levels:39 - this is CRITICAL
+2024-01-26 10:13:57.102 | INFO     | loguru_pack.loguru_config:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:13:57.102 | DEBUG    | loguru_pack.loguru_config:try_all_levels:34 - this is DEBUG
+2024-01-26 10:13:57.102 | INFO     | loguru_pack.loguru_config:try_all_levels:35 - this is INFO
+2024-01-26 10:13:57.102 | SUCCESS  | loguru_pack.loguru_config:try_all_levels:36 - this is SUCCESS
+2024-01-26 10:13:57.102 | WARNING  | loguru_pack.loguru_config:try_all_levels:37 - this is WARNING
+2024-01-26 10:13:57.102 | ERROR    | loguru_pack.loguru_config:try_all_levels:38 - this is ERROR
+2024-01-26 10:13:57.115 | CRITICAL | loguru_pack.loguru_config:try_all_levels:39 - this is CRITICAL
+2024-01-26 10:13:57.668 | INFO     | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 10:13:57.668 | INFO     | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 10:13:57.704 | WARNING  | __main__:<module>:180 - Making plots
+2024-01-26 10:14:17.218 | INFO     | loguru_pack.loguru_config:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:14:17.770 | INFO     | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 10:14:17.770 | INFO     | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 10:14:17.804 | WARNING  | __main__:<module>:180 - Making plots
+2024-01-26 10:15:12.354 | INFO     | __main__:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:17:13.443 | INFO     | loguru_pack.loguru_config:<module>:16 - *** Initiating loguru ***
+2024-01-26 10:17:14.003 | INFO     | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 10:17:14.003 | INFO     | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 10:17:14.037 | WARNING  | __main__:<module>:180 - Making plots
+2024-01-26 10:18:19.633 | INFO     | loguru_pack.loguru_config:<module>:11 - *** Initiating loguru ***
+2024-01-26 10:18:20.183 | INFO     | __main__:find_sensor_edges:81 - image_length = 520
+2024-01-26 10:18:20.183 | INFO     | __main__:find_sensor_edges:82 - image_width = 696
+2024-01-26 10:18:20.233 | WARNING  | __main__:<module>:181 - Making plots
+2024-01-26 10:18:39.566 | INFO     | loguru_pack.loguru_config:<module>:11 - *** Initiating loguru ***
+2024-01-26 10:18:39.566 | DEBUG    | loguru_pack.loguru_config:try_all_levels:29 - this is DEBUG
+2024-01-26 10:18:39.566 | INFO     | loguru_pack.loguru_config:try_all_levels:30 - this is INFO
+2024-01-26 10:18:39.566 | SUCCESS  | loguru_pack.loguru_config:try_all_levels:31 - this is SUCCESS
+2024-01-26 10:18:39.581 | WARNING  | loguru_pack.loguru_config:try_all_levels:32 - this is WARNING
+2024-01-26 10:18:39.582 | ERROR    | loguru_pack.loguru_config:try_all_levels:33 - this is ERROR
+2024-01-26 10:18:39.582 | CRITICAL | loguru_pack.loguru_config:try_all_levels:34 - this is CRITICAL
+2024-01-26 10:18:40.133 | INFO     | __main__:find_sensor_edges:81 - image_length = 520
+2024-01-26 10:18:40.133 | INFO     | __main__:find_sensor_edges:82 - image_width = 696
+2024-01-26 10:18:40.170 | WARNING  | __main__:<module>:181 - Making plots
+2024-01-26 10:23:11.488 | INFO     | loguru_pack.loguru_config:<module>:11 - *** Initiating loguru ***
+2024-01-26 10:23:12.052 | DEBUG    | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 10:23:12.052 | DEBUG    | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 10:23:12.068 | DEBUG    | __main__:<module>:169 - upper_edge[0:10] = array([129, 129, 129, 129, 130, 130, 129, 129, 130, 130])
+2024-01-26 10:23:12.069 | DEBUG    | __main__:<module>:170 - lower_edge[0:10] = array([335, 335, 335, 335, 335, 335, 334, 335, 336, 336])
+2024-01-26 10:23:12.071 | DEBUG    | __main__:func_distortion_correction:139 - padding = 10
+2024-01-26 10:23:12.071 | DEBUG    | __main__:func_distortion_correction:143 - len(Y_standard) = 221
+2024-01-26 10:23:12.082 | SUCCESS  | __main__:<module>:182 - Making plots
+2024-01-26 10:23:55.004 | DEBUG    | __main__:find_sensor_edges:80 - image_length = 520
+2024-01-26 10:23:55.004 | DEBUG    | __main__:find_sensor_edges:81 - image_width = 696
+2024-01-26 10:23:55.004 | DEBUG    | __main__:<module>:169 - upper_edge[0:10] = array([129, 129, 129, 129, 130, 130, 129, 129, 130, 130])
+2024-01-26 10:23:55.004 | DEBUG    | __main__:<module>:170 - lower_edge[0:10] = array([335, 335, 335, 335, 335, 335, 334, 335, 336, 336])
+2024-01-26 10:23:55.021 | DEBUG    | __main__:func_distortion_correction:139 - padding = 10
+2024-01-26 10:23:55.022 | DEBUG    | __main__:func_distortion_correction:143 - len(Y_standard) = 221
+2024-01-26 10:23:55.033 | SUCCESS  | __main__:<module>:182 - Making plots
+2024-01-26 10:24:40.944 | DEBUG    | __main__:try_all_levels:29 - this is DEBUG
+2024-01-26 10:24:40.944 | INFO     | __main__:try_all_levels:30 - this is INFO
+2024-01-26 10:24:40.944 | SUCCESS  | __main__:try_all_levels:31 - this is SUCCESS
+2024-01-26 10:24:40.944 | WARNING  | __main__:try_all_levels:32 - this is WARNING
+2024-01-26 10:24:40.944 | ERROR    | __main__:try_all_levels:33 - this is ERROR
+2024-01-26 10:24:40.959 | CRITICAL | __main__:try_all_levels:34 - this is CRITICAL
+2024-01-26 10:25:06.655 | DEBUG    | __main__:try_all_levels:29 - this is DEBUG
+2024-01-26 10:25:06.656 | INFO     | __main__:try_all_levels:30 - this is INFO
+2024-01-26 10:25:06.657 | SUCCESS  | __main__:try_all_levels:31 - this is SUCCESS
+2024-01-26 10:25:06.658 | WARNING  | __main__:try_all_levels:32 - this is WARNING
+2024-01-26 10:25:06.658 | ERROR    | __main__:try_all_levels:33 - this is ERROR
+2024-01-26 10:25:06.659 | CRITICAL | __main__:try_all_levels:34 - this is CRITICAL
+2024-01-26 10:25:23.109 | TRACE    | __main__:try_all_levels:28 - this is TRACE
+2024-01-26 10:25:23.109 | DEBUG    | __main__:try_all_levels:29 - this is DEBUG
+2024-01-26 10:25:23.109 | DEBUG    | __main__:try_all_levels:29 - this is DEBUG
+2024-01-26 10:25:23.109 | INFO     | __main__:try_all_levels:30 - this is INFO
+2024-01-26 10:25:23.109 | INFO     | __main__:try_all_levels:30 - this is INFO
+2024-01-26 10:25:23.113 | SUCCESS  | __main__:try_all_levels:31 - this is SUCCESS
+2024-01-26 10:25:23.113 | SUCCESS  | __main__:try_all_levels:31 - this is SUCCESS
+2024-01-26 10:25:23.113 | WARNING  | __main__:try_all_levels:32 - this is WARNING
+2024-01-26 10:25:23.113 | WARNING  | __main__:try_all_levels:32 - this is WARNING
+2024-01-26 10:25:23.115 | ERROR    | __main__:try_all_levels:33 - this is ERROR
+2024-01-26 10:25:23.115 | ERROR    | __main__:try_all_levels:33 - this is ERROR
+2024-01-26 10:25:23.115 | CRITICAL | __main__:try_all_levels:34 - this is CRITICAL
+2024-01-26 10:25:23.115 | CRITICAL | __main__:try_all_levels:34 - this is CRITICAL
