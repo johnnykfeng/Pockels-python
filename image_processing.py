@@ -190,6 +190,8 @@ def test_correct_distortion():
     rows = np.arange(parallel_image.shape[1])
     plt.scatter(rows, upper_edge_fit, color = 'red', label = 'Top Edge fit', s=2, alpha=0.2)
     plt.scatter(rows, lower_edge_fit, color = 'blue', label = 'Bottom Edge fit', s=2, alpha=0.2)
+    plt.scatter(rows, upper_edge, color = 'black', label = 'Top Edge fit', s=2, alpha=0.2)
+    plt.scatter(rows, lower_edge, color = 'black', label = 'Bottom Edge fit', s=2, alpha=0.2)
     plt.legend()
 
     plt.figure("bias image with edge lines")

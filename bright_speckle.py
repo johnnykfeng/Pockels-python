@@ -72,9 +72,9 @@ def compare_images(image1, image2, verbose = True):
 
     return count_same, count_different, same_fraction, diff_fraction
 
-# image_path = r"test_data\D325150\700V Crossed 25mA.txt"
+image_path = r'test_data\D325150\700V Crossed 25mA.txt'
 # image_path = r"test_data\D325150\500V Crossed 0mA.txt"
-image_path = r"test_data\D325150\0V Parallel.txt"
+# image_path = r"test_data\D325150\0V Parallel.txt"
 image_array = txt2matrix(image_path)
 
 # Remove bright speckles

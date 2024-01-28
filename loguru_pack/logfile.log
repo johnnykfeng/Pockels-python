@@ -1,7 +1,7 @@
-2024-01-26 14:56:04.135 | DEBUG    | __main__:find_sensor_edges:75 - image_length = 520
-2024-01-26 14:56:04.135 | DEBUG    | __main__:find_sensor_edges:76 - image_width = 696
-2024-01-26 14:56:05.805 | DEBUG    | __main__:test_correct_distortion:175 - upper_edge[0:10] = array([129, 129, 130, 129, 130, 130, 129, 129, 130, 130])
-2024-01-26 14:56:05.805 | DEBUG    | __main__:test_correct_distortion:176 - lower_edge[0:10] = array([335, 335, 334, 335, 334, 335, 334, 335, 336, 335])
-2024-01-26 14:56:05.805 | DEBUG    | __main__:correct_distortion:135 - padding = 10
-2024-01-26 14:56:05.805 | DEBUG    | __main__:correct_distortion:139 - len(Y_standard) = 221
-2024-01-26 14:56:05.838 | SUCCESS  | __main__:test_correct_distortion:186 - Making plots
+2024-01-28 08:03:40.916 | DEBUG    | __main__:find_sensor_edges:75 - image_length = 520
+2024-01-28 08:03:40.927 | DEBUG    | __main__:find_sensor_edges:76 - image_width = 696
+2024-01-28 08:03:45.093 | DEBUG    | __main__:test_correct_distortion:175 - upper_edge[0:10] = array([129, 129, 130, 129, 130, 130, 129, 129, 130, 130])
+2024-01-28 08:03:45.093 | DEBUG    | __main__:test_correct_distortion:176 - lower_edge[0:10] = array([335, 335, 334, 335, 334, 335, 334, 335, 336, 335])
+2024-01-28 08:03:45.095 | DEBUG    | __main__:correct_distortion:135 - padding = 10
+2024-01-28 08:03:45.095 | DEBUG    | __main__:correct_distortion:139 - len(Y_standard) = 221
+2024-01-28 08:03:45.139 | SUCCESS  | __main__:test_correct_distortion:186 - Making plots
