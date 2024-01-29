@@ -3,8 +3,7 @@ import os
 
 sys.path.append(r"C:\Users\johnk\Projects-code\Pockels-python")
 
-from loguru_pack import loguru_config
-from loguru import logger
+from loguru_pack import logger, loguru_config
 
 # Example usage
 logger.trace("This is a trace message") 
@@ -37,14 +36,12 @@ def try_all_levels(set_level="SUCCESS"):
     logger.error("this is ERROR")
     logger.critical("this is CRITICAL")
 
-
 def bind_example():
     logger.add("loguru_pack/logfile.log", format="{extra[ip]} {extra[user]} {message}")
     context_logger = logger.bind(ip="192.168.0.1", user="someone")
     context_logger.info("Contextualize your logger easily")
     context_logger.bind(user="someone_else").info("Inline binding of extra attribute")
     context_logger.info("Use kwargs to add context during formatting: {user}", user="anybody")
-
 
 # logger.info("If you're using Python {}, prefer {feature} of course!", 3.6, feature="f-strings")
 

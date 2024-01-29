@@ -111,3 +111,9 @@
 2024-01-28 17:27:21.972 | ERROR    | __main__:<module>:15 - This is an error message
 2024-01-28 17:27:23.711 | WARNING  | __main__:<module>:14 - This is a warning message
 2024-01-28 17:27:23.712 | ERROR    | __main__:<module>:15 - This is an error message
+2024-01-28 17:32:39.856 | WARNING  | __main__:<module>:14 - This is a warning message
+2024-01-28 17:32:39.857 | ERROR    | __main__:<module>:15 - This is an error message
+2024-01-28 17:33:17.680 | WARNING  | __main__:<module>:14 - This is a warning message
+2024-01-28 17:33:17.681 | ERROR    | __main__:<module>:15 - This is an error message
+2024-01-28 17:33:35.058 | WARNING  | __main__:<module>:13 - This is a warning message
+2024-01-28 17:33:35.059 | ERROR    | __main__:<module>:14 - This is an error message

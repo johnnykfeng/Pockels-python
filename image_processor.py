@@ -6,8 +6,7 @@ from load_files import txt2matrix
 from skimage import filters, feature, io
 from scipy.ndimage import uniform_filter1d
 from scipy.interpolate import interp1d
-from loguru_pack import loguru_config
-from loguru import logger
+from loguru_pack import logger, loguru_config
 from utils import plot_array, plot_image, plot_two_arrays
         
 class ImageProcessor:
