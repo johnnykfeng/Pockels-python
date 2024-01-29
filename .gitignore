@@ -1,3 +1,6 @@
 __pycache__/
 venv/
 ignore/
+logfile*
+loguru_pack/logfile*
+*.log
