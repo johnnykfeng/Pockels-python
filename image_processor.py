@@ -11,16 +11,21 @@ from loguru import logger
 from utils import plot_array, plot_image, plot_two_arrays
         
 class ImageProcessor:
-    def __init__(self, image_raw):
-        self.image_raw = image_raw
+    
+    measurement = 'Pockels' # not useful, only to demo class variables
+    
+    def __init__(self, image_calib):
+        self.image_calib = image_calib
         self.cropped_image = None
-        self.corrected_image = None
-        self.self.edge_1 = None
-        self.self.edge_2 = None
-        self.self.self.edge_2_fit = None
-        self.self.self.edge_2_fit = None
+        self.image_corrected = None
+        self.edge_1 = None
+        self.edge_2 = None
+        self.edge_1_fit = None
+        self.edge_2_fit = None
+        self.padding = 10
         
-    def linear_fit_edge(self, edge_array):
+    @staticmethod
+    def linear_fit_edge(edge_array):
         """
         Applies a linear fit to an edge array.
         Args:
@@ -35,7 +40,7 @@ class ImageProcessor:
 
         return linear_edge_array
 
-    def find_sensor_edges(self, image, threshold=0.8, show_dim = True, show_plots = False):
+    def find_sensor_edges(self, threshold=0.8, show_dim = False, show_plots = False):
         """
         Detects the top and bottom edges of signals in an image.
 
@@ -45,25 +50,25 @@ class ImageProcessor:
 
         Returns:
         self.edge_1, self.edge_2: 1-D array of size image_width, maps the column position of the edge
-        self.edge_1_fit, self.self.edge_2_fit: linear fit of self.edge_1 and edge_2
+        self.edge_1_fit, self.edge_2_fit: linear fit of self.edge_1 and edge_2
         """
 
-        image_length, image_width = image.shape
+        image_length, image_width = self.image_calib.shape
         if show_dim:
             logger.debug(f"{image_length = }")
             logger.debug(f"{image_width = }")
 
         # Threshold for judging signal
-        image_center = image[:, int(image_width/2)]  # rounds down image_length/2
+        image_center = self.image_calib[:, int(image_width/2)]  # rounds down image_length/2
         image_center_smooth = uniform_filter1d(image_center, size=20)
         threshold_line = threshold * np.max(image_center_smooth)
 
         # Initialize arrays
-        self.self.edge_1 = np.zeros(image_width, dtype=int)
-        self.self.edge_2 = np.zeros(image_width, dtype=int)
+        self.edge_1 = np.zeros(image_width, dtype=int)
+        self.edge_2 = np.zeros(image_width, dtype=int)
 
         for i in range(image_width):
-            Iline = image[:, i]  # image per line
+            Iline = self.image_calib[:, i]  # image per line
             I_signal_rough = Iline[Iline > threshold_line]
             if I_signal_rough.size > 0:
                 Signal_median = np.median(I_signal_rough)
@@ -71,51 +76,55 @@ class ImageProcessor:
                 signal_range = np.where(Iline > Th)[0]
 
                 if signal_range.size > 0:
-                    self.self.edge_1[i] = signal_range[0] 
-                    self.self.edge_2[i] = signal_range[-1]
+                    self.edge_1[i] = signal_range[0] 
+                    self.edge_2[i] = signal_range[-1]
                 else:
-                    self.self.edge_1[i] = 0
-                    self.self.edge_2[i] = image_width - 1
+                    self.edge_1[i] = 0
+                    self.edge_2[i] = image_width - 1
             else:
-                self.self.edge_1[i] = 0
-                self.self.edge_2[i] = image_width - 1
+                self.edge_1[i] = 0
+                self.edge_2[i] = image_width - 1
 
         self.edge_1_fit = self.linear_fit_edge(self.edge_1)
-        self.self.edge_2_fit = self.linear_fit_edge(edge_2)
+        self.edge_2_fit = self.linear_fit_edge(self.edge_2)
+        
+        #shows the edge fitting close ip
         if show_plots:  
             plot_two_arrays(self.edge_1, self.edge_1_fit, "upper edge")
             plot_two_arrays(self.edge_2, self.edge_2_fit, "lower edge")
 
         return self.edge_1, self.edge_2, self.edge_1_fit, self.edge_2_fit
 
-    def correct_distortion(self, padding = 10):
+    def correct_distortion(self, raw_image):
 
-        length, width = self.image_raw.shape
+        length, width = raw_image.shape
 
         sensor_thickness_fit = np.mean(self.edge_2_fit - self.edge_1_fit)
         self.image_corrected = np.full((length, width), np.nan)
 
-        if sensor_thickness_fit + 2 * padding >= length or \
-            min(self.edge_1_fit) < padding or \
-            max(self.edge_2_fit) > length - padding:
-            padding = 0
+        # set self.padding=0 if beyond image boundaries
+        if sensor_thickness_fit + 2 * self.padding >= length or \
+            min(self.edge_1_fit) < self.padding or \
+            max(self.edge_2_fit) > length - self.padding:
+            self.padding = 0
 
-        logger.debug(f"{padding = }")
+        logger.debug(f"{self.padding = }")
 
-        Y_standard = np.arange(round(np.mean(self.edge_1_fit) - padding), round(np.mean(self.edge_2_fit)) + padding)
+        # array of new pixel positions in the y-axis
+        y_corrected = np.arange(round(np.mean(self.edge_1_fit) - self.padding), round(np.mean(self.edge_2_fit)) + self.padding)
 
-        logger.debug(f"{len(Y_standard) = }")
+        logger.debug(f"{len(y_corrected) = }")
 
         for col_index in range(width):
-            # Calculate the vertical bounds for the current column, adjusted by padding
-            bottom_edge = int(self.edge_1_fit[col_index] - padding)
-            top_edge = int(self.edge_2_fit[col_index] + padding)
+            # Calculate the vertical bounds for the current column, adjusted by self.padding
+            edge_1_crop = int(self.edge_1_fit[col_index] - self.padding)
+            edge_2_crop = int(self.edge_2_fit[col_index] + self.padding)
             # Extract a vertical slice (column) of the image within the calculated bounds
-            column_slice = self.image_raw[bottom_edge:top_edge, col_index]
+            column_slice = raw_image[edge_1_crop:edge_2_crop, col_index]
             # Create an array representing the original vertical positions in the slice
             original_positions = np.arange(len(column_slice))
             # Create a linearly spaced array for the new vertical positions
-            new_positions = np.arange(1, len(Y_standard))
+            new_positions = np.arange(1, len(y_corrected))
             # Perform linear interpolation from the original positions to the new positions
             # 'interp1d' creates a linear interpolation function
             # 'fill_value='extrapolate'' allows the function to handle values outside the domain
@@ -123,20 +132,57 @@ class ImageProcessor:
                                         kind='linear', fill_value='extrapolate')(new_positions)
 
             # Assign the interpolated values to the corresponding column in the corrected image
-            # 'Y_standard' defines the vertical range in the corrected image where the interpolated values are placed
-            self.image_corrected[Y_standard[0]: Y_standard[-1], col_index] = interpolated_values
+            # 'y_corrected' defines the vertical range in the corrected image where the interpolated values are placed
+            self.image_corrected[y_corrected[0]: y_corrected[-1], col_index] = interpolated_values
 
-data_folder = r"test_data\D325150"
-bias_txt = os.path.join(data_folder, '700V Crossed 25mA.txt')
-bias_image = txt2matrix(bias_txt)
-parallel_0V_txt = os.path.join(data_folder, '0V Parallel.txt')
-parallel_image = txt2matrix(parallel_0V_txt)
+        return self.image_corrected
 
-image_processor = ImageProcessor(bias_image)
+    def plot_edge_fit(self):
+        # Ensure edge_1_fit and edge_2_fit are defined and accessible
+        plt.figure("Image with Edges")
 
-# def main():
+        # Plot image_calib
+        plt.imshow(self.image_calib, cmap='jet')
 
+        # Generate x-coordinates for the edges
+        rows = np.arange(self.image_calib.shape[1])
 
+        # Plot edge_1_fit and edge_2_fit
+        plt.plot(rows, self.edge_1_fit, color='black', label='Edge 1 fit', alpha=1)
+        plt.plot(rows, self.edge_2_fit, color='green', label='Edge 2 fit', alpha=1)
 
-# if __name__ == '__main__':
-    # main()
+        # Plot edges with padding
+        plt.plot(rows, self.edge_1_fit - self.padding, color='magenta', label='padding')
+        plt.plot(rows, self.edge_2_fit + self.padding, color='magenta')
+
+        plt.colorbar()
+        plt.legend()
+        plt.show()
+
+def main():
+    data_folder = r"test_data\D325150"
+    bias_txt = os.path.join(data_folder, '700V Crossed 25mA.txt')
+    bias_image = txt2matrix(bias_txt)
+    parallel_0V_txt = os.path.join(data_folder, '0V Parallel.txt')
+    parallel_image = txt2matrix(parallel_0V_txt)
+
+    processor = ImageProcessor(parallel_image)
+    processor.find_sensor_edges()
+    img_corrected = processor.correct_distortion(raw_image=bias_image)
+    print(processor.__dict__.keys())
+    processor.plot_edge_fit()
+
+    # # second edge detection does not work!
+    # processor2 = ImageProcessor(image_calib=img_corrected)
+    # processor2.find_sensor_edges(show_dim=True, show_plots=True)
+    # img_corrected_again = processor2.correct_distortion(raw_image=img_corrected)
+    # processor2.plot_edge_fit()
+
+    plt.figure("corrected and cropped bias image")
+    # set vmin and vmax to the same values to compare images
+    plt.imshow(img_corrected, cmap='jet', vmin=0, vmax=700)  # 'gray' colormap for grayscale image
+    plt.colorbar()
+    plt.show()
+
+if __name__ == '__main__':
+    main()
