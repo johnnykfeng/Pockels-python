@@ -1,7 +1,113 @@
-2024-01-28 08:03:40.916 | DEBUG    | __main__:find_sensor_edges:75 - image_length = 520
-2024-01-28 08:03:40.927 | DEBUG    | __main__:find_sensor_edges:76 - image_width = 696
-2024-01-28 08:03:45.093 | DEBUG    | __main__:test_correct_distortion:175 - upper_edge[0:10] = array([129, 129, 130, 129, 130, 130, 129, 129, 130, 130])
-2024-01-28 08:03:45.093 | DEBUG    | __main__:test_correct_distortion:176 - lower_edge[0:10] = array([335, 335, 334, 335, 334, 335, 334, 335, 336, 335])
-2024-01-28 08:03:45.095 | DEBUG    | __main__:correct_distortion:135 - padding = 10
-2024-01-28 08:03:45.095 | DEBUG    | __main__:correct_distortion:139 - len(Y_standard) = 221
-2024-01-28 08:03:45.139 | SUCCESS  | __main__:test_correct_distortion:186 - Making plots
+2024-01-28 15:08:59.974 | DEBUG    | __main__:correct_distortion:102 - padding = 30
+2024-01-28 15:08:59.976 | DEBUG    | __main__:correct_distortion:106 - len(Y_standard) = 261
+2024-01-28 15:09:26.256 | DEBUG    | __main__:correct_distortion:102 - padding = 30
+2024-01-28 15:09:26.258 | DEBUG    | __main__:correct_distortion:106 - len(Y_standard) = 261
+2024-01-28 15:23:03.550 | DEBUG    | __main__:correct_distortion:107 - padding = 30
+2024-01-28 15:23:03.551 | DEBUG    | __main__:correct_distortion:112 - len(y_corrected) = 261
+2024-01-28 15:23:43.808 | DEBUG    | __main__:correct_distortion:107 - padding = 30
+2024-01-28 15:23:43.809 | DEBUG    | __main__:correct_distortion:112 - len(y_corrected) = 261
+2024-01-28 15:25:34.495 | DEBUG    | __main__:correct_distortion:107 - padding = 30
+2024-01-28 15:25:34.497 | DEBUG    | __main__:correct_distortion:112 - len(y_corrected) = 261
+2024-01-28 15:25:49.054 | DEBUG    | __main__:correct_distortion:107 - padding = 30
+2024-01-28 15:25:49.056 | DEBUG    | __main__:correct_distortion:112 - len(y_corrected) = 261
+2024-01-28 16:13:04.614 | DEBUG    | __main__:correct_distortion:110 - padding = 30
+2024-01-28 16:13:04.615 | DEBUG    | __main__:correct_distortion:115 - len(y_corrected) = 261
+2024-01-28 16:13:31.019 | DEBUG    | __main__:correct_distortion:110 - padding = 30
+2024-01-28 16:13:31.020 | DEBUG    | __main__:correct_distortion:115 - len(y_corrected) = 261
+2024-01-28 16:14:11.427 | DEBUG    | __main__:correct_distortion:110 - padding = 30
+2024-01-28 16:14:11.428 | DEBUG    | __main__:correct_distortion:115 - len(y_corrected) = 261
+2024-01-28 16:15:24.038 | DEBUG    | __main__:correct_distortion:110 - padding = 30
+2024-01-28 16:15:24.039 | DEBUG    | __main__:correct_distortion:115 - len(y_corrected) = 261
+2024-01-28 16:17:16.345 | DEBUG    | __main__:correct_distortion:110 - padding = 30
+2024-01-28 16:17:16.346 | DEBUG    | __main__:correct_distortion:115 - len(y_corrected) = 261
+2024-01-28 16:17:27.988 | DEBUG    | __main__:correct_distortion:110 - padding = 30
+2024-01-28 16:17:27.990 | DEBUG    | __main__:correct_distortion:115 - len(y_corrected) = 261
+2024-01-28 16:18:06.926 | DEBUG    | __main__:correct_distortion:110 - padding = 30
+2024-01-28 16:18:06.927 | DEBUG    | __main__:correct_distortion:115 - len(y_corrected) = 261
+2024-01-28 16:24:56.975 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:24:56.975 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:25:17.479 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:25:17.480 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:25:35.093 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:25:35.095 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:25:54.222 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:25:54.224 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:26:32.975 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:26:32.976 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:27:55.785 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:27:55.787 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:27:56.708 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:27:56.709 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:28:53.951 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:28:53.952 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:29:53.470 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:29:53.471 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:30:39.935 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:30:39.936 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:30:40.694 | DEBUG    | __main__:correct_distortion:111 - self.padding = 0
+2024-01-28 16:30:40.695 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 695
+2024-01-28 16:31:43.695 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:31:43.696 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:31:47.779 | DEBUG    | __main__:correct_distortion:111 - self.padding = 0
+2024-01-28 16:31:47.780 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 695
+2024-01-28 16:32:44.603 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:32:44.604 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:32:45.884 | DEBUG    | __main__:find_sensor_edges:58 - image_length = 520
+2024-01-28 16:32:45.886 | DEBUG    | __main__:find_sensor_edges:59 - image_width = 696
+2024-01-28 16:32:56.632 | DEBUG    | __main__:correct_distortion:111 - self.padding = 0
+2024-01-28 16:32:56.633 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 695
+2024-01-28 16:37:48.378 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:37:48.379 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 16:38:52.616 | DEBUG    | __main__:correct_distortion:111 - self.padding = 10
+2024-01-28 16:38:52.617 | DEBUG    | __main__:correct_distortion:116 - len(y_corrected) = 221
+2024-01-28 17:07:04.571 | DEBUG    | __main__:<module>:18 - This is a debug message
+2024-01-28 17:07:04.571 | INFO     | __main__:<module>:19 - This is an info message
+2024-01-28 17:07:04.571 | SUCCESS  | __main__:<module>:20 - This is a success message
+2024-01-28 17:07:04.572 | WARNING  | __main__:<module>:21 - This is a warning message
+2024-01-28 17:07:04.572 | ERROR    | __main__:<module>:22 - This is an error message
+2024-01-28 17:07:49.546 | DEBUG    | __main__:<module>:19 - This is a debug message
+2024-01-28 17:07:49.546 | INFO     | __main__:<module>:20 - This is an info message
+2024-01-28 17:07:49.547 | SUCCESS  | __main__:<module>:21 - This is a success message
+2024-01-28 17:07:49.547 | WARNING  | __main__:<module>:22 - This is a warning message
+2024-01-28 17:07:49.547 | ERROR    | __main__:<module>:23 - This is an error message
+2024-01-28 17:08:04.685 | DEBUG    | __main__:<module>:19 - This is a debug message
+2024-01-28 17:08:04.685 | INFO     | __main__:<module>:20 - This is an info message
+2024-01-28 17:08:04.685 | SUCCESS  | __main__:<module>:21 - This is a success message
+2024-01-28 17:08:04.686 | WARNING  | __main__:<module>:22 - This is a warning message
+2024-01-28 17:08:04.686 | ERROR    | __main__:<module>:23 - This is an error message
+2024-01-28 17:14:18.789 | DEBUG    | __main__:<module>:29 - This is a debug message
+2024-01-28 17:14:18.790 | INFO     | __main__:<module>:30 - This is an info message
+2024-01-28 17:14:18.790 | SUCCESS  | __main__:<module>:31 - This is a success message
+2024-01-28 17:14:18.790 | WARNING  | __main__:<module>:32 - This is a warning message
+2024-01-28 17:14:18.791 | ERROR    | __main__:<module>:33 - This is an error message
+2024-01-28 17:15:14.136 | DEBUG    | __main__:<module>:29 - This is a debug message
+2024-01-28 17:15:14.136 | INFO     | __main__:<module>:30 - This is an info message
+2024-01-28 17:15:14.137 | SUCCESS  | __main__:<module>:31 - This is a success message
+2024-01-28 17:15:14.137 | WARNING  | __main__:<module>:32 - This is a warning message
+2024-01-28 17:15:14.137 | ERROR    | __main__:<module>:33 - This is an error message
+2024-01-28 17:15:42.439 | DEBUG    | __main__:<module>:24 - This is a debug message
+2024-01-28 17:15:42.440 | INFO     | __main__:<module>:25 - This is an info message
+2024-01-28 17:15:42.440 | SUCCESS  | __main__:<module>:26 - This is a success message
+2024-01-28 17:15:42.440 | WARNING  | __main__:<module>:27 - This is a warning message
+2024-01-28 17:15:42.441 | ERROR    | __main__:<module>:28 - This is an error message
+2024-01-28 17:15:54.256 | DEBUG    | __main__:<module>:23 - This is a debug message
+2024-01-28 17:15:54.256 | INFO     | __main__:<module>:24 - This is an info message
+2024-01-28 17:15:54.256 | SUCCESS  | __main__:<module>:25 - This is a success message
+2024-01-28 17:15:54.257 | WARNING  | __main__:<module>:26 - This is a warning message
+2024-01-28 17:15:54.257 | ERROR    | __main__:<module>:27 - This is an error message
+2024-01-28 17:22:42.170 | DEBUG    | __main__:<module>:11 - This is a debug message
+2024-01-28 17:22:42.171 | INFO     | __main__:<module>:12 - This is an info message
+2024-01-28 17:22:42.171 | SUCCESS  | __main__:<module>:13 - This is a success message
+2024-01-28 17:22:42.171 | WARNING  | __main__:<module>:14 - This is a warning message
+2024-01-28 17:22:42.172 | ERROR    | __main__:<module>:15 - This is an error message
+2024-01-28 17:22:56.039 | DEBUG    | __main__:<module>:11 - This is a debug message
+2024-01-28 17:22:56.040 | INFO     | __main__:<module>:12 - This is an info message
+2024-01-28 17:22:56.040 | SUCCESS  | __main__:<module>:13 - This is a success message
+2024-01-28 17:22:56.041 | WARNING  | __main__:<module>:14 - This is a warning message
+2024-01-28 17:22:56.041 | ERROR    | __main__:<module>:15 - This is an error message
+2024-01-28 17:26:02.823 | WARNING  | __main__:<module>:14 - This is a warning message
+2024-01-28 17:26:02.824 | ERROR    | __main__:<module>:15 - This is an error message
+2024-01-28 17:27:21.971 | WARNING  | __main__:<module>:14 - This is a warning message
+2024-01-28 17:27:21.972 | ERROR    | __main__:<module>:15 - This is an error message
+2024-01-28 17:27:23.711 | WARNING  | __main__:<module>:14 - This is a warning message
+2024-01-28 17:27:23.712 | ERROR    | __main__:<module>:15 - This is an error message
