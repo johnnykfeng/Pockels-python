@@ -37,6 +37,16 @@ class DataParser:
         return image_array
 
     def extract_metadata_filename(self, filename):
+        """
+        Extracts metadata from a given filename.
+
+        Args:
+            filename (str): The filename to extract metadata from.
+
+        Returns:
+            tuple: A tuple containing the extracted metadata in the following order: polarizer position, bias voltage, X-ray flux current.
+        """
+
         # Split the filename at spaces
         components = filename.split()
 
@@ -55,6 +65,18 @@ class DataParser:
 
 
     def parse_datafolder(self, folder_path):
+        """
+        Parse the data folder and extract information from '.txt' files.
+
+        Args:
+            folder_path (str): The path to the folder containing the '.txt' files.
+
+        Returns:
+            dict: A dictionary containing the extracted information.
+                - 'txt_filenames': List of '.txt' filenames.
+                - 'image_arrays': List of image arrays extracted from the '.txt' files.
+                - 'metadatas': List of metadata dictionaries extracted from the '.txt' filenames.
+        """
         # List all files in the directory
         files = os.listdir(folder_path)
 
@@ -73,12 +95,21 @@ class DataParser:
                 txt_filenames.append(txt_filename)
                 image_arrays.append(image_array)
                 metadatas.append(metadata)
-        
+
         results = {'txt_filenames': txt_filenames, 'image_arrays': image_arrays, 'metadatas': metadatas}
         return results
 
     def store_in_hdf5(self, results, hdf5_file):
+        """
+        Store the results in an HDF5 file.
 
+        Args:
+            results (dict): A dictionary containing the results to be stored.
+            hdf5_file (str): The path to the HDF5 file.
+
+        Returns:
+            None
+        """
         with h5py.File(hdf5_file, 'w') as f:
             for i, txt_filename in enumerate(results['txt_filenames']):
                 image_array = results['image_arrays'][i]
@@ -89,6 +120,15 @@ class DataParser:
                     grp.attrs[k] = v
 
     def load_hdf5(self, hdf5_filepath):
+        """
+        Load data from an HDF5 file.
+
+        Args:
+            hdf5_filepath (str): The path to the HDF5 file.
+
+        Returns:
+            dict: A dictionary containing the loaded data, including 'txt_filenames', 'image_arrays', and 'metadatas'.
+        """
         with h5py.File(hdf5_filepath, 'r') as f:
             txt_filenames = list(f.keys())
             image_arrays = []
