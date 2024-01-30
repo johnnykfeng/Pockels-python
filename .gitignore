@@ -4,3 +4,4 @@ ignore/
 logfile*
 loguru_pack/logfile*
 *.log
+big_data/

@@ -1,7 +1,14 @@
 import sys
 import os
 
-sys.path.append(r"C:\Users\johnk\Projects-code\Pockels-python")
+print(f"{__file__ = }")
+# Get the absolute path of the parent directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+print(f"{current_dir = }")
+# Construct the path to previous directory
+parent_dir = os.path.join(current_dir, '../')
+# Modify sys.path
+sys.path.insert(0, parent_dir)
 
 from loguru_pack import logger, loguru_config
 
