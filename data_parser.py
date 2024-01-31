@@ -1,25 +1,17 @@
+from itertools import islice
 import numpy as np
 import re
 import os
 from pprintpp import pprint as pp
 import h5py
+from loguru_pack import logger, loguru_config
 
 class DataParser:
     def __init__(self):
         pass
 
     def txt2array(self, txt_file:str, no_zeros=False) -> np.ndarray:
-        """
-        Convert a text file containing pixel data into a 2D array.
 
-        Parameters:
-        - txt_file (str): The path to the text file.
-        - no_zeros (bool): If True, exclude zero-valued pixels from the array.
-
-        Returns:
-        - image_array (ndarray): The 2D array representing the image.
-
-        """
         data = np.loadtxt(txt_file, skiprows=19)
 
         # Step 1: Determine the dimensions of the image
@@ -36,17 +28,20 @@ class DataParser:
 
         return image_array
 
+    def txt2metadata(self, txt_file, start_line:int = 5, end_line:int = 17) -> dict:
+        camera_data = {}
+        with open(txt_file, 'r') as f:
+            lines = list(islice(f, start_line, end_line)) # read only the metadata lines
+            for i, line in enumerate(lines):
+                line = line.strip() # remove leading and trailing whitespaces
+                if not line: # skip empty lines
+                    continue    
+                key, value = line.split(':', 1)
+                camera_data[key.strip()] = value.strip()
+                
+        return camera_data  
+
     def extract_metadata_filename(self, filename):
-        """
-        Extracts metadata from a given filename.
-
-        Args:
-            filename (str): The filename to extract metadata from.
-
-        Returns:
-            tuple: A tuple containing the extracted metadata in the following order: polarizer position, bias voltage, X-ray flux current.
-        """
-
         # Split the filename at spaces
         components = filename.split()
 
@@ -61,73 +56,89 @@ class DataParser:
         except:
             flux = 0
 
-        return pol_posn, bias, flux
+        return {'pol_posn': pol_posn, 'bias': bias, 'flux': flux}
+
+# DEPRECATED
+    # def parse_datafolder(self, folder_path):
+
+    #     # List all files in the directory
+    #     files = os.listdir(folder_path)
+
+    #     # Filter the list to include only '.txt' files
+    #     txt_filenames = []
+    #     image_arrays = []
+    #     metadatas = []
+    #     for f in files:
+    #         if f.endswith('.txt') and f != 'P.txt':
+    #             txt_filename = f
+    #             txt_filepath = os.path.join(folder_path, txt_filename)
+    #             image_array = self.txt2array(txt_filepath)
+    #             camera_data = self.txt2metadata(txt_filepath)
+    #             pol_posn, bias, flux = self.extract_metadata_filename(txt_filename)
+    #             # metadata = {'bias': bias, 'pol_posn': pol_posn, 'flux': flux}
+
+    #             txt_filenames.append(txt_filename)
+    #             image_arrays.append(image_array)
+    #             metadatas.append(metadata)
+
+    #     results = {'txt_filenames': txt_filenames, 'image_arrays': image_arrays, 'metadatas': metadatas}
+    #     return results
 
 
-    def parse_datafolder(self, folder_path):
-        """
-        Parse the data folder and extract information from '.txt' files.
+    def map_subdirectories(self, root_directory):  # Define a function to map the subdirectory tree of a given directory
+        dir_tree = {}  # Initialize an empty dictionary to store the directory tree
+        for name in os.listdir(root_directory):  # Iterate over each item in the directory
+            if os.path.isdir(os.path.join(root_directory, name)):  # If the item is a directory
+                dir_tree[name] = self.map_subdirectories(os.path.join(root_directory, name))
 
-        Args:
-            folder_path (str): The path to the folder containing the '.txt' files.
+        return dir_tree  # Return the directory tree
 
-        Returns:
-            dict: A dictionary containing the extracted information.
-                - 'txt_filenames': List of '.txt' filenames.
-                - 'image_arrays': List of image arrays extracted from the '.txt' files.
-                - 'metadatas': List of metadata dictionaries extracted from the '.txt' filenames.
-        """
-        # List all files in the directory
-        files = os.listdir(folder_path)
 
-        # Filter the list to include only '.txt' files
-        txt_filenames = []
-        image_arrays = []
-        metadatas = []
-        for f in files:
-            if f.endswith('.txt') and f != 'P.txt':
-                txt_filename = f
-                txt_filepath = os.path.join(folder_path, txt_filename)
-                image_array = self.txt2array(txt_filepath)
-                pol_posn, bias, flux = self.extract_metadata_filename(txt_filename)
-                metadata = {'bias': bias, 'pol_posn': pol_posn, 'flux': flux}
+    def store_in_hdf5(self, folderpath, hdf5_file):
+        hdf5_file = h5py.File(hdf5_file, 'w')
 
-                txt_filenames.append(txt_filename)
-                image_arrays.append(image_array)
-                metadatas.append(metadata)
+        dir_tree = self.map_subdirectories(folderpath)  # Map the subdirectory tree of the root directory
+        
+        for sensor_id in dir_tree:  # Iterate over the sensor_id and files in the root directory
+            logger.debug(f"{sensor_id = }")
+            grp = hdf5_file.create_group(sensor_id)  # Create a group in the HDF5 file for the current directory
 
-        results = {'txt_filenames': txt_filenames, 'image_arrays': image_arrays, 'metadatas': metadatas}
-        return results
+            for test_id in dir_tree[sensor_id]:  # Iterate over the test_id in the current directory
 
-    def store_in_hdf5(self, results, hdf5_file):
-        """
-        Store the results in an HDF5 file.
+                if not test_id.lower().startswith("test"): # check if the subdirectory is a "test", otherwise skip
+                    continue
 
-        Args:
-            results (dict): A dictionary containing the results to be stored.
-            hdf5_file (str): The path to the HDF5 file.
+                test_grp = grp.create_group(test_id) # Create sub-group for each test
+                logger.debug(f"{test_id = }")
 
-        Returns:
-            None
-        """
-        with h5py.File(hdf5_file, 'w') as f:
-            for i, txt_filename in enumerate(results['txt_filenames']):
-                image_array = results['image_arrays'][i]
-                metadata = results['metadatas'][i]
-                grp = f.create_group(txt_filename)
-                grp.create_dataset('raw_image', data=image_array)
-                for k, v in metadata.items():
-                    grp.attrs[k] = v
+                for txt_filename in os.listdir(os.path.join(folderpath, sensor_id, test_id)):
+                    if not txt_filename.endswith('.txt') or not txt_filename != 'P.txt': 
+                        # check if the file is a .txt file, otherwise skip
+                        continue
+
+                    logger.debug(f"{txt_filename = }")
+                    
+                    txt_filepath = os.path.join(folderpath, sensor_id, test_id, txt_filename)
+                    image_array = self.txt2array(txt_filepath)
+                    camera_data = self.txt2metadata(txt_filepath)
+                    l, w = image_array.shape
+                    apparatus_data = self.extract_metadata_filename(txt_filename)
+                    # logger.info(f"{apparatus_data = }")
+                    # logger.info(f"{camera_data = }")
+                    metadata = {**apparatus_data, **camera_data}
+                    # logger.info(f"{metadata = }")
+                    
+                    image_grp = test_grp.create_group(txt_filename)
+                    image_grp.create_dataset("raw_image", shape=(l,w), dtype= np.int16, data=image_array)
+                    for k, v in metadata.items():
+                        image_grp.attrs[k] = v
+
+        hdf5_file.close()  # Close the HDF5 file
+        logger.success(f"Data stored in {hdf5_file}")
 
     def load_hdf5(self, hdf5_filepath):
         """
-        Load data from an HDF5 file.
-
-        Args:
-            hdf5_filepath (str): The path to the HDF5 file.
-
-        Returns:
-            dict: A dictionary containing the loaded data, including 'txt_filenames', 'image_arrays', and 'metadatas'.
+        NEED TO REWRITE THIS FUNCTION
         """
         with h5py.File(hdf5_filepath, 'r') as f:
             txt_filenames = list(f.keys())
@@ -139,22 +150,22 @@ class DataParser:
                 metadata = {k: grp.attrs[k] for k in grp.attrs}
                 image_arrays.append(image_array)
                 metadatas.append(metadata)
+
+        logger.success(f"Data loaded from {hdf5_filepath}")
         results = {'txt_filenames': txt_filenames, 'image_arrays': image_arrays, 'metadatas': metadatas}
         return results
 
 def main():
     DP = DataParser()
-    data_folder = r"test_data\D325150"
-    results = DP.parse_datafolder(folder_path=data_folder)
-    hdf5_filepath = r'test_data\D325150.hdf5'
-    DP.store_in_hdf5(results, hdf5_filepath)
-    results = DP.load_hdf5(hdf5_filepath)
+    data_folder = r"big_data"
+    # results = DP.parse_datafolder(folder_path=data_folder)
+    dir_tree = DP.map_subdirectories(data_folder)
+    pp(dir_tree)
 
-    # pp(results['txt_filenames'])
-    # pp(f"{results['txt_filenames'] = }")
-    # pp(f"{results['metadatas'] = }")
-    # pp(results['txt_filenames'])
-    # pp(results['metadatas'])
+    hdf5_filepath = r'big_data.hdf5'
+    DP.store_in_hdf5(data_folder, hdf5_filepath)
+
+
 
 if __name__ == "__main__":
     main()  # Run the main function
