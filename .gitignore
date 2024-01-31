@@ -7,4 +7,5 @@ loguru_pack/logfile*
 big_data/
 *.hdf5
 *.h5
+logfile.log
 

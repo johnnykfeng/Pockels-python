@@ -1,3 +1,7 @@
+"""
+DEPRECATED:
+This module is replaced by data_parser.py
+"""
 import numpy as np
 import os
 import matplotlib.pyplot as plt

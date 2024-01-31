@@ -2,7 +2,7 @@ import sys
 import numpy as np
 import os
 import matplotlib.pyplot as plt
-from load_files import txt2matrix
+from DEPRECATED.load_files import txt2matrix
 from skimage import filters, feature, io
 from scipy.ndimage import uniform_filter1d
 from scipy.interpolate import interp1d
@@ -15,13 +15,14 @@ class ImageProcessor:
     
     def __init__(self, image_calib):
         self.image_calib = image_calib
-        self.cropped_image = None
-        self.image_corrected = None
         self.edge_1 = None
         self.edge_2 = None
         self.edge_1_fit = None
         self.edge_2_fit = None
         self.padding = 10
+        self.cropped_image = None
+        self.image_corrected = None # output of correct_distortion
+        self.cleaned_image = None # output of remove_bright_speckes
         
     @staticmethod
     def linear_fit_edge(edge_array):
@@ -158,6 +159,27 @@ class ImageProcessor:
         plt.legend()
         plt.show()
 
+    def remove_bright_speckles(self, threshold_scale=1.2):
+        """
+        args:
+            threshold_scale: float, default=1.2
+                Lower values will remove more speckles, but may also remove valid features.
+                Best values are between 1.2 and 1.6, determined by trial and error.
+        """
+        self.cleaned_image = np.copy(self.image_corrected)
+        for y in range(2, self.cleaned_image.shape[0] - 2):
+            for x in range(2, self.cleaned_image.shape[1] - 2):
+                neighbors = self.cleaned_image[y-2:y+3, x-2:x+3].ravel()
+                avg_neighbors = np.mean(neighbors)
+
+                # Check if the current pixel is a bright speckle
+                if self.cleaned_image[y, x] > threshold_scale * avg_neighbors:
+                    # Replace with the minimum of left and right neighbors
+                    self.cleaned_image[y, x] = np.min([self.cleaned_image[y, x-1], 
+                                                       self.cleaned_image[y, x+1]])
+
+        return self.cleaned_image
+
 def main():
     data_folder = r"test_data\D325150"
     bias_txt = os.path.join(data_folder, '700V Crossed 25mA.txt')
@@ -169,18 +191,21 @@ def main():
     processor.find_sensor_edges()
     img_corrected = processor.correct_distortion(raw_image=bias_image)
     print(processor.__dict__.keys())
-    processor.plot_edge_fit()
+    # processor.plot_edge_fit()
 
-    # # second edge detection does not work!
-    # processor2 = ImageProcessor(image_calib=img_corrected)
-    # processor2.find_sensor_edges(show_dim=True, show_plots=True)
-    # img_corrected_again = processor2.correct_distortion(raw_image=img_corrected)
-    # processor2.plot_edge_fit()
-
+    xmin, xmax = 450, 690
+    ymin, ymax = 115, 225
     plt.figure("corrected and cropped bias image")
     # set vmin and vmax to the same values to compare images
-    plt.imshow(img_corrected, cmap='jet', vmin=0, vmax=700)  # 'gray' colormap for grayscale image
+    plt.imshow(img_corrected[ymin:ymax, xmin:xmax], cmap='jet', vmin=0, vmax=700)
     plt.colorbar()
+
+    for threshold_scale in [1.2, 1.4, 1.6]:
+        cleaned = processor.remove_bright_speckles(threshold_scale=threshold_scale)
+        plt.figure(f"cleaned image threshold_scale={threshold_scale}")
+        plt.imshow(cleaned[ymin:ymax, xmin:xmax], cmap='jet', vmin=0, vmax=700)
+        plt.colorbar()
+
     plt.show()
 
 if __name__ == '__main__':
