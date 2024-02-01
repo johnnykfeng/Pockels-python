@@ -3,7 +3,7 @@ from loguru import logger
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
-from load_files import txt2matrix
+from DEPRECATED.load_files import txt2matrix
 
 def remove_bright_speckles(image, threshold_scale=2.0):
     """
@@ -34,7 +34,7 @@ def remove_bright_speckles(image, threshold_scale=2.0):
 
             # Check if the current pixel is a bright speckle
             if image[y, x] > threshold_scale * avg_neighbors:
-                # Replace with the average of left and right neighbors
+                # Replace with the minimum of left and right neighbors
                 # cleaned_image[y, x] = np.min([image[y, x-1], image[y, x+1], 
                 #                                image[y, x-2], image[y, x+2]])
                 cleaned_image[y, x] = np.min([image[y, x-1], image[y, x+1]])
