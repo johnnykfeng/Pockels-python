@@ -8,3 +8,4 @@ https://excalidraw.com/#json=hB9_EAy1Dh5orvo6hPzQr,ezv4QDEFBtO2nwUueaQtyQ
 
 ### Cropping images
 ![Alt text](images\slice_images.png)
+

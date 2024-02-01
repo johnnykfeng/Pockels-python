@@ -1,4 +1,5 @@
 from itertools import islice
+import matplotlib.pyplot as plt
 import numpy as np
 import re
 import os
@@ -7,11 +8,16 @@ import h5py
 from loguru_pack import logger, loguru_config
 
 class DataParser:
+    """
+    A class to parse and store data from .txt files into an HDF5 file.
+    This class has no instance variables and methods are static.
+    """
     def __init__(self):
         pass
 
     def txt2array(self, txt_file:str, no_zeros=False) -> np.ndarray:
-
+        """ Used in the store_in_hdf5 method.
+        Convert a .txt file to a 2D numpy array."""
         data = np.loadtxt(txt_file, skiprows=19)
 
         # Step 1: Determine the dimensions of the image
@@ -29,6 +35,9 @@ class DataParser:
         return image_array
 
     def txt2metadata(self, txt_file, start_line:int = 5, end_line:int = 17) -> dict:
+        """ Used in the store_in_hdf5 method.
+        Extract metadata from a .txt file. The metadata is stored in the file between lines 5 and 17.
+        """
         camera_data = {}
         with open(txt_file, 'r') as f:
             lines = list(islice(f, start_line, end_line)) # read only the metadata lines
@@ -42,6 +51,8 @@ class DataParser:
         return camera_data  
 
     def extract_metadata_filename(self, filename):
+        """ Used in the store_in_hdf5 method.
+        Extract metadata from the filename of a .txt file."""
         # Split the filename at spaces
         components = filename.split()
 
@@ -101,14 +112,14 @@ class DataParser:
         
         for sensor_id in dir_tree:  # Iterate over the sensor_id and files in the root directory
             logger.debug(f"{sensor_id = }")
-            grp = hdf5_file.create_group(sensor_id)  # Create a group in the HDF5 file for the current directory
-
-            for test_id in dir_tree[sensor_id]:  # Iterate over the test_id in the current directory
-
-                if not test_id.lower().startswith("test"): # check if the subdirectory is a "test", otherwise skip
+            sensor_grp = hdf5_file.create_group(sensor_id)  # Create a group in the HDF5 file for the current directory
+            # Iterate over the test_id in the current directory
+            for test_id in dir_tree[sensor_id]:  
+                # check if the subdirectory is a "test", otherwise skip
+                if not test_id.lower().startswith("test"):
                     continue
 
-                test_grp = grp.create_group(test_id) # Create sub-group for each test
+                test_grp = sensor_grp.create_group(test_id) # Create sub-group for each test
                 logger.debug(f"{test_id = }")
 
                 for txt_filename in os.listdir(os.path.join(folderpath, sensor_id, test_id)):
@@ -129,43 +140,72 @@ class DataParser:
                     # logger.info(f"{metadata = }")
                     
                     image_grp = test_grp.create_group(txt_filename)
-                    image_grp.create_dataset("raw_image", shape=(l,w), dtype= np.int16, data=image_array)
+                    # load the image array into the HDF5 file
+                    image_grp.create_dataset("raw_image", shape=(l,w), 
+                                             dtype= np.int16, data=image_array)
+                    # load the metadata into the HDF5 file
                     for k, v in metadata.items():
                         image_grp.attrs[k] = v
 
         hdf5_file.close()  # Close the HDF5 file
         logger.success(f"Data stored in {hdf5_file}")
 
-    def load_hdf5(self, hdf5_filepath):
+    def show_hdf(self, hdf5_filepath):
+        """ Display the contents of an HDF5 file.
         """
-        NEED TO REWRITE THIS FUNCTION
-        """
-        with h5py.File(hdf5_filepath, 'r') as f:
-            txt_filenames = list(f.keys())
-            image_arrays = []
-            metadatas = []
-            for txt_filename in txt_filenames:
-                grp = f[txt_filename]
-                image_array = grp['raw_image'][()]
-                metadata = {k: grp.attrs[k] for k in grp.attrs}
-                image_arrays.append(image_array)
-                metadatas.append(metadata)
+        with h5py.File(hdf5_filepath, 'r') as hdf_file:
+            # List all the groups in the file
+            for sensor_id in hdf_file:
+                logger.info(sensor_id)
+                for test_id in hdf_file[sensor_id]:
+                    logger.info(test_id)
+                    for txt_filename in hdf_file[sensor_id][test_id]:
+                        logger.info(txt_filename)
+                        # Load the image array
+                        image_array = hdf_file[sensor_id][test_id][txt_filename]['raw_image'][:]
+                        # Load the metadata
+                        metadata = dict(hdf_file[sensor_id][test_id][txt_filename].attrs)
+                        logger.debug(metadata)
+                        logger.debug(image_array.shape)
+                        # logger.debug(image_array.dtype)
+                        # logger.debug(image_array)
+                        print("-----")
 
-        logger.success(f"Data loaded from {hdf5_filepath}")
-        results = {'txt_filenames': txt_filenames, 'image_arrays': image_arrays, 'metadatas': metadatas}
-        return results
 
+# example usage
 def main():
-    DP = DataParser()
-    data_folder = r"big_data"
-    # results = DP.parse_datafolder(folder_path=data_folder)
-    dir_tree = DP.map_subdirectories(data_folder)
-    pp(dir_tree)
+    DP = DataParser() # Create an instance of the DataParser class
+    ## analyze the data folder
+    # data_folder = r"big_data"
+    # dir_tree = DP.map_subdirectories(data_folder)
+    # pp(dir_tree)
+
+    ## Create an HDF5 file and store the data
+    # hdf5_filepath = r'big_data.hdf5'
+    # DP.store_in_hdf5(data_folder, hdf5_filepath)
+    # DP.load_hdf5(hdf5_filepath)
 
     hdf5_filepath = r'big_data.hdf5'
-    DP.store_in_hdf5(data_folder, hdf5_filepath)
+    DP.show_hdf(hdf5_filepath)
+    hdf_file = h5py.File(hdf5_filepath, 'r')
+    # List all groups
+    pp("Keys: %s" % hdf_file.keys())
+    group_key = list(hdf_file.keys())[0]
+    pp(f"{group_key = }")
 
+    # Get the data
+    data = hdf_file[group_key]["Test 1"]
+    # pp("Keys: %s" % data.keys())
+    print(data["0V Parallel.txt"].attrs.keys())
+    print(data["0V Parallel.txt"].attrs.values())
+    print(data["0V Parallel.txt"].attrs.items())
+    # get raw image
+    raw_image = data["0V Parallel.txt"]["raw_image"][:]
+    plt.imshow(raw_image)
+    plt.show()
 
+    # Close the file after reading
+    hdf_file.close()
 
 if __name__ == "__main__":
     main()  # Run the main function

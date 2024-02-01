@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import matplotlib.pyplot as plt
-from load_files import txt2matrix
+from DEPRECATED.load_files import txt2matrix
 
 # data_folder = r"C:\Users\10552\OneDrive - Redlen Technologies\Code\Pockels_python\test_data\D325150"
 data_folder = r"test_data\D325150"
