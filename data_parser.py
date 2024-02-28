@@ -6,6 +6,20 @@ import os
 from pprintpp import pprint as pp
 import h5py
 from loguru_pack import logger, loguru_config
+from abc import ABC, abstractmethod
+
+class DataParser(ABC):
+    @abstractmethod
+    def txt2array(self, txt_file:str, no_zeros=False) -> np.ndarray:
+        """ Used in the store_in_hdf5 method.
+        Convert a .txt file to a 2D numpy array."""
+        pass
+    def txt2metadata(self, txt_file, start_line:int = 5, end_line:int = 17) -> dict:
+        """ Used in the store_in_hdf5 method.
+        Extract metadata from a .txt file. The metadata is stored in the file between lines 5 and 17.
+        """
+        pass
+
 
 class DataParser:
     """
@@ -69,32 +83,8 @@ class DataParser:
 
         return {'pol_posn': pol_posn, 'bias': bias, 'flux': flux}
 
-# DEPRECATED
-    # def parse_datafolder(self, folder_path):
 
-    #     # List all files in the directory
-    #     files = os.listdir(folder_path)
-
-    #     # Filter the list to include only '.txt' files
-    #     txt_filenames = []
-    #     image_arrays = []
-    #     metadatas = []
-    #     for f in files:
-    #         if f.endswith('.txt') and f != 'P.txt':
-    #             txt_filename = f
-    #             txt_filepath = os.path.join(folder_path, txt_filename)
-    #             image_array = self.txt2array(txt_filepath)
-    #             camera_data = self.txt2metadata(txt_filepath)
-    #             pol_posn, bias, flux = self.extract_metadata_filename(txt_filename)
-    #             # metadata = {'bias': bias, 'pol_posn': pol_posn, 'flux': flux}
-
-    #             txt_filenames.append(txt_filename)
-    #             image_arrays.append(image_array)
-    #             metadatas.append(metadata)
-
-    #     results = {'txt_filenames': txt_filenames, 'image_arrays': image_arrays, 'metadatas': metadatas}
-    #     return results
-
+class HDF5Parser():
 
     def map_subdirectories(self, root_directory):  # Define a function to map the subdirectory tree of a given directory
         dir_tree = {}  # Initialize an empty dictionary to store the directory tree
@@ -184,9 +174,11 @@ def main():
     # hdf5_filepath = r'big_data.hdf5'
     # DP.store_in_hdf5(data_folder, hdf5_filepath)
     # DP.load_hdf5(hdf5_filepath)
+    
+    HP = HDF5Parser()
 
     hdf5_filepath = r'big_data.hdf5'
-    DP.show_hdf(hdf5_filepath)
+    HP.show_hdf(hdf5_filepath)
     hdf_file = h5py.File(hdf5_filepath, 'r')
     # List all groups
     pp("Keys: %s" % hdf_file.keys())
